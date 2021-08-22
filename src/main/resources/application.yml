@@ -1,0 +1,30 @@
+app:
+  description: "Bananes Export"
+server:
+  port: "8080"
+  accesslog.purge:
+    enabled: true # default false
+    execute-on-startup: true # default false
+    execution-interval: 24 # default 24
+    execution-interval-unit: HOURS # default HOURS / MINUTES ...
+    max-history: 14 # default 30
+    max-history-unit: DAYS # default DAYS / MINUTES
+spring:
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    defer-datasource-initialization: true
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:testdb;MODE=PostgreSQL;DATABASE_TO_UPPER=FALSE
+    platform: h2
+    username:
+    password:
+  servlet:
+    multipart:
+      max-file-size: -1
+      max-request-size: -1
